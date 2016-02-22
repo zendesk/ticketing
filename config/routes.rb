@@ -11,6 +11,12 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: "home#index"
+  post 'tickets/new' => 'tickets#create'
+  post 'comments' => 'comments#create'
+
+  resources :tickets do
+   resources :comments
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

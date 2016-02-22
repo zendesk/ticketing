@@ -1,2 +1,31 @@
-<h1>Tickets#show</h1>
-<p>Find me in app/views/tickets/show.html.erb</p>
+
+<div class="">
+<h1><%= @ticket.subject %></h1>
+<p><%= @ticket.description %></p>
+</div>
+<div class="col-md-10 col-md-offset-2">
+<%= form_for([@ticket, @comment], html: { class: 'form-horizontal'}) do |f| %>
+
+<div class="form-group">
+  <%= f.label :comment %>
+  <%= f.text_area :body, class: 'form-control', rows: 10 %>
+</div>
+
+<div class="form-group">
+  <div class="checkbox">
+    <label>
+        <%= f.check_box :internal %>Internal
+    </label>
+      <%= f.submit class: 'btn btn-primary' %>
+  </div>
+
+</div>
+<% end %>
+</div>
+
+
+<div class="col-md-12">
+  <% @ticket.comments.reverse.each do |comment| %>
+    <%= render partial: 'comments/comment_panel', object: comment  %>
+  <% end %>
+</div>

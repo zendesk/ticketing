@@ -1,0 +1,10 @@
+<% @comment = comment_panel %>
+<div class="panel panel-<%= !@comment.internal ? "primary" : "warning"%>">
+  <div class="panel-heading">
+    <span><img src="https://www.wpclipart.com/signs_symbol/icons_oversized/male_user_icon.png" width="28px", height="28px"></span
+    <h3 class="panel-title"><%= "#{"Internal" if @comment.internal} - #{@comment.created_at}" %></h3>
+  </div>
+  <div class="panel-body  <%="alert-warning" if @comment.internal %>">
+    <%= @comment.body %>
+  </div>
+</div>

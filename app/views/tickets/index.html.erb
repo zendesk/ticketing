@@ -1,2 +1,11 @@
 <h1>Tickets#index</h1>
 <p>Find me in app/views/tickets/index.html.erb</p>
+
+<% if @tickets %>
+<ul>
+  <% @tickets.each do |t| %>
+    <li><%= link_to "#{t.id} - #{t.subject}", action: 'show', id: t.id %></li>
+  <% end %>
+</ul>
+
+<% end %>
