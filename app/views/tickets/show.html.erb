@@ -3,24 +3,31 @@
 <h1><%= @ticket.subject %></h1>
 <p><%= @ticket.description %></p>
 </div>
-<div class="col-md-10 col-md-offset-2">
-<%= form_for([@ticket, @comment], html: { class: 'form-horizontal'}) do |f| %>
-
-<div class="form-group">
-  <%= f.label :comment %>
-  <%= f.text_area :body, class: 'form-control', rows: 10 %>
-</div>
-
-<div class="form-group">
-  <div class="checkbox">
-    <label>
-        <%= f.check_box :internal %>Internal
-    </label>
-      <%= f.submit class: 'btn btn-primary' %>
+<div class="container panel">
+  <div class="panel-title">
+    <h1>new comment</h1>
   </div>
+  <div class="panel-body">
+    <%= form_for([@ticket, @comment], html: { class: 'form-horizontal'}) do |f| %>
 
-</div>
-<% end %>
+    <div class="form-group">
+      <%= f.label :comment %>
+      <%= f.text_area :body, class: 'form-control', rows: 10 %>
+    </div>
+
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+            <%= f.check_box :internal %>Internal
+        </label>
+          <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="panel-footer">
+    <span>Dunno</span>
+  </div>
 </div>
 
 
