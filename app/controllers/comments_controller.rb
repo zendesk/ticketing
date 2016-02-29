@@ -1,9 +1,13 @@
 class CommentsController < ApplicationController
-
   def create
     @ticket = Ticket.find(params[:ticket_id])
-    require 'byebug'; byebug
-    redirect_to @ticket if @ticket.comments.create!(comment_params)
+    @comment = @ticket.comments.create(comment_params.merge(author_id: current_user.id))
+    if @comment
+      redirect_to @ticket if
+      Rails.logger.info "Comment Created: #{@comment.inspect}"
+    else
+      Rails.logger.info "Oh!"
+    end
   end
 
   private
