@@ -5,6 +5,14 @@ class Ticket < ActiveRecord::Base
   belongs_to :reporter, class_name:  "User",
                         foreign_key: "reporter_id"
 
+  STATUSES = [
+   "New",
+   "Open",
+   "Waiting",
+   "Solved",
+   "Closed",
+  ]
+
 ## Let's do Status Ids:
 ## New     : 0
 ## Open    : 1
@@ -13,4 +21,8 @@ class Ticket < ActiveRecord::Base
 ## Gone    : 4
   scope :active, -> { where('status_id < 3') }
   scope :inactive, -> { where('status_id > 3') }
+
+  def statuses
+    STATUSES
+  end
 end

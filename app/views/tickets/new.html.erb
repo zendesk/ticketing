@@ -21,7 +21,7 @@
     <%= f.text_area :description, class: 'form-control', row: 4 %>
     <div class="form-group col-md-2">
       <%= f.label :status %>
-      <%= f.select(:status_id, options_for_select([['New', 0], ['Open'], ['Waiting', 2], ['Solved', 3], ['Closed', 4]]), {}, {class: "form-control"}) %>
+      <%= f.select(:status_id, options_for_select(@ticket.statuses.map.with_index{|i, v| [i, v]}), {}, {class: "form-control"}) %>
     </div>
   </div>
 
