@@ -10,9 +10,10 @@ The app is meant to be buggy and with failures and **not perfect**, so for that 
 
 # Future
 
-We might need to build a single page application with any js framwork and refactor part of the app to create an API serving that app which might be useful for other teams that want to test backend and frontend developers skills
+We might need to build a single page application with any js framwork and refactor part of the app to create an API serving that app which might be useful for other teams that want to test backend and frontend developers skills.
 
 # How to use it
 
-You can set mysql url env variable `export MYSQL_URL=mysql://<username>@<host>:<port>/ticketing_development` in case you dont have mysql default settings
-Basically just clone the repo and start the rails server ``bundle && rails s``
+You can set mysql url env variable `export MYSQL_URL=mysql://<username>@<host>:<port>/ticketing_development` in case you dont have mysql default settings.
+
+Basically just clone the repo and start the rails server ``bundle && rails s``.
