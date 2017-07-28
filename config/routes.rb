@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  get 'tickets/index'
+  # get 'tickets/index'
+  #
+  # get 'tickets/new'
+  #
+  # get 'tickets/show'
+  resources :tickets, only: [:index, :new, :show, :create]
 
-  get 'tickets/new'
-
-  get 'tickets/show'
+  # post 'tickets/new' => 'tickets#create'
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
@@ -11,7 +14,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root to: "home#index"
-  post 'tickets/new' => 'tickets#create'
   post 'comments' => 'comments#create'
 
   resources :tickets do

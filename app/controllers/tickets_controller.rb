@@ -31,6 +31,12 @@ class TicketsController < ApplicationController
     @comment = @ticket.comments.new
   end
 
+  def destroy
+    Ticket.find(params[:id]).destroy
+    flash[:notice] = "Ticket was destroyed"
+    redirect_to tickets_url
+  end
+
   private
 
   def ticket_params

@@ -14,12 +14,13 @@
 %>
 
 default: &default
-  adapter: mysql2
-  username: <%= mysql.user %>
-  host: <%= mysql.host %>
-  port: <%= mysql.port %>
-  password: <%= mysql.password %>
-  reconnect: true
+  adapter: postgresql
+  username: interview
+  # host: <%= mysql.host %>
+  host: localhost
+  # port: <%= mysql.port %>
+  password: ''
+  # reconnect: true
 
 development:
   <<: *default
