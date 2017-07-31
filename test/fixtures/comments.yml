@@ -3,7 +3,9 @@
 one:
   body: MyString
   internal: false
+  ticket: one
 
 two:
   body: MyString
   internal: false
+  ticket: two
