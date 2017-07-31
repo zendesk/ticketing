@@ -20,7 +20,7 @@ class Ticket < ActiveRecord::Base
 ## Solved  : 3
 ## Gone    : 4
   scope :active, -> { where('status_id < 3') }
-  scope :inactive, -> { where('status_id > 3') }
+  scope :inactive, -> { where('status_id >= 3') }
 
   def statuses
     STATUSES
