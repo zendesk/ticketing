@@ -2,8 +2,8 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 jQuery ->
-  $('#ticket_assignee_id').autocomplete
-    source: $('#ticket_assignee_id').data('autocomplete-source')
+  #  $('#ticket_assignee_id').autocomplete
+  #    source: $('#ticket_assignee_id').data('autocomplete-source')
 
   $("tr[data-link]").click ->
     window.location = $(this).data('link')

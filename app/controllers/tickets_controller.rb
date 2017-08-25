@@ -12,10 +12,12 @@ class TicketsController < ApplicationController
 
   def create
     @ticket = Ticket.new(ticket_params)
-    if @ticket.save!
+
+    begin
+      @ticket.save!
       symbol, message, path = :notice, "Ticket has been created", tickets_index_path
-    else
-      symbol, message, path = :error, "Something went wrong", tickets_new_path
+    rescue ActiveRecord::RecordInvalid => e
+      symbol, message, path = :error, e.message, tickets_new_path
     end
 
     respond_to do |format|
