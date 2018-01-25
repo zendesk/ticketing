@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'nokogiri', '1.8.1'
 gem 'rails', '4.2.7.1'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem 'sass-rails', '~> 5.0'
