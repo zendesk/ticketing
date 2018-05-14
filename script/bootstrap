@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -e
+
+heading() {
+  echo "$1...";
+}
+
+pass() {
+  echo "DONE"
+}
+
+fail() {
+  echo "FAIL"
+}
+
+fail_and_exit() {
+  fail
+  exit -1
+}
+
+try() {
+  heading "$1"
+  if eval "$2"
+  then
+    pass
+  else
+    fail_and_exit
+  fi
+}
+
+try "Bundling" "bundle check 2>&1 >/dev/null || bundle install --local --quiet"
+try "Creating and migrating DB" "bundle exec rake db:create && bundle exec rake db:migrate"
+try "Starting Rails server" "bundle exec rails server"
+
+echo "Bootstrap complete"
+
