@@ -17,4 +17,4 @@ We might need to build a single page application with any js framwork and refact
 You can set mysql url env variable in case you dont have mysql default settings. 
 `export MYSQL_URL=mysql://<username>@<host>:<port>/ticketing_development` 
 
-Basically just clone the repo and start the rails server ``bundle && rails s``.
+Basically just clone the repo and start the rails server ``./script/bootstrap``.
